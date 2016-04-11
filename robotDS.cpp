@@ -1,13 +1,29 @@
 #include "robotDS.h"
 #include "mbed.h"
 
-Flasher::Flasher(PinName pin) : _pin(pin) {
-    _pin = 0;
+
+//Running Motor (3 pins)
+motor1::run1(PinName direction, PinName sleep, PinName pwm) : _direction(direction) _sleep(sleep) _pwm(pwm) {
+    direction = 0;
+    sleep = 0;
+    pwm.period = 0;
 }
 
-void Flasher::flash(int n) {
-    for(int i=0; i<n*2; i++) {
-        _pin = !_pin;
-        wait(0.2);
-    }
+void motor1::run1(int DIR, int SLP, float speed) {
+    direction = DIR;
+    sleep = SLP;
+    pwm.period(speed);
+    wait(.01);
 }
+
+
+// //Running Motor (2 pins)
+// motor1::run1(PinName pin1, PinName pin2, PinName pin3) : _pin(pin) {
+//     // (finish)
+// }
+//
+// void motor2::run2(int DIR, int speed) {
+//     pin1 = DIR;
+//     pin2.period(speed);
+//     wait(.01);
+// }
