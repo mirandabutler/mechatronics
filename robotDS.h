@@ -6,7 +6,7 @@
 class motor1 {
 public:
     motor1(PinName direction, PinName sleep, PinName pwm);
-    void run1(pin1, pin2, pin3);
+    void motorDriver1(int DIR, int SLP, float speed);
 
 private:
     DigitalOut _direction; //direction

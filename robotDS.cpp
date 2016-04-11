@@ -3,16 +3,17 @@
 
 
 //Running Motor (3 pins)
-motor1::run1(PinName direction, PinName sleep, PinName pwm) : _direction(direction) _sleep(sleep) _pwm(pwm) {
-    direction = 0;
-    sleep = 0;
-    pwm.period = 0;
+motor1::motor1(PinName direction, PinName sleep, PinName pwm) : _direction(direction), _sleep(sleep), _pwm(pwm) {
+    //init
+    // _direction = 0;
+    // _sleep = 0;
+    // _pwm.period = 0;
 }
 
 void motor1::run1(int DIR, int SLP, float speed) {
-    direction = DIR;
-    sleep = SLP;
-    pwm.period(speed);
+    _direction = DIR;
+    _sleep = SLP;
+    _pwm.period(speed);
     wait(.01);
 }
 
